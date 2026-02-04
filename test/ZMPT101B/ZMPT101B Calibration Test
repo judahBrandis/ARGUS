@@ -1,0 +1,10 @@
+#include <Arduino.h>
+#include <ZMPT101B.h>
+
+const uint8_t INPUT_PIN = "A0"; // change this depending on the pin used for the analogue input for voltage sensor
+const float ACTUAL_FREQUENCY = 50.0; // change this depending on the desired frequency of AC wave
+
+const float ACTUAL_VOLTAGE = 50; // change this depending on the actual voltage found by using a multimeter
+
+ZMPT101B voltageSensor(INPUT_PIN, ACTUAL_FREQUENCY);  // Voltage sensor instance
+getSensitivity (sensor, ACTUAL_VOLTAGE);
