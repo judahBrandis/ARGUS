@@ -1,57 +1,60 @@
-// Only library I added myself
 #include <Arduino.h> 
-
-// All 3 libraries are from the Adafruit BMP280 library
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_BMP280.h> 
 
-// I defined both pins in the hopes of solving the I2C issue
-#define SDA_PIN D14
-#define SCL_PIN D15
+#define BMP_SCK  (13)
+#define BMP_MISO (12)
+#define BMP_MOSI (11)
+#define BMP_CS   (10)
 
-// Used by Adafruit in test code
-Adafruit_BMP280 bmp;
-Adafruit_Sensor *bmp_temp = bmp.getTemperatureSensor();
-Adafruit_Sensor *bmp_pressure = bmp.getPressureSensor();
+Adafruit_BMP280 bmp; // BMP280 I2C driver instance
+//Adafruit_BMP280 bmp(BMP_CS); // hardware SPI
+//Adafruit_BMP280 bmp(BMP_CS, BMP_MOSI, BMP_MISO,  BMP_SCK);
 
 // Sets up the tempeature reading function - everything that goes in setup()
 void measureTemperatureSetup () {
-  // I believe this is declaring the I2C pins? 
-  // Wasn't in origonal library code, added for debugging
-  Wire.begin(SDA_PIN, SCL_PIN);
-  Serial.println("Wire.begin(); ran");
+  while ( !Serial ) delay(100);   // wait for USB serial monitor to connect before continuing
 
-  // Checks if connected to I2C address
-  // Wasn't in origonal library code, added for debugging
-  // 0x76 if SDO is connected to ground, 0x77 if SDO connected to VCC
-  if (!bmp.begin(0x77)) { 
-    Serial.println("Error: BMP280 is not providing correct data");
+  // Locates and connects to BMP280 board through I2C
+  Serial.println(F("BMP280 test"));
+  unsigned status;
+  //status = bmp.begin(BMP280_ADDRESS_ALT, BMP280_CHIPID);
+  status = bmp.begin();
+  if (!status) {
+    Serial.println(F("Could not find a valid BMP280 sensor, check wiring or "
+                      "try a different address!"));
+    Serial.print("SensorID was: 0x"); Serial.println(bmp.sensorID(),16);
+    Serial.print("        ID of 0xFF probably means a bad address, a BMP 180 or BMP 085\n");
+    Serial.print("   ID of 0x56-0x58 represents a BMP 280,\n");
+    Serial.print("        ID of 0x60 represents a BME 280.\n");
+    Serial.print("        ID of 0x61 represents a BME 680.\n");
+    while (1) delay(10);  // In the future, probably change this so that it doesn't stop 
+                          // the code entirely and instead provides a warning that the 
+                          // individual sensor isn't working
   }
-  
-  // Default settings from library (sensortest) & datasheet
-  bmp.setSampling
-  (
-    Adafruit_BMP280::MODE_NORMAL,     /* Operating Mode. */
-    Adafruit_BMP280::SAMPLING_X2,     /* Temp. oversampling */
-    Adafruit_BMP280::SAMPLING_X16,    /* Pressure oversampling */
-    Adafruit_BMP280::FILTER_X16,      /* Filtering. */
+
+  // Default settings from datasheet. 
+  bmp.setSampling(
+    Adafruit_BMP280::MODE_NORMAL,     // Operating Mode. 
+    Adafruit_BMP280::SAMPLING_X2,     // Temp. oversampling 
+    Adafruit_BMP280::SAMPLING_X16,    // Pressure oversampling 
+    Adafruit_BMP280::FILTER_X16,      // Filtering. 
     Adafruit_BMP280::STANDBY_MS_500
-  ); /* Standby time. */
-  bmp_temp->printSensorDetails();
+  ); // Standby time
 } 
 
 // Displays the temperature and serves as a variable - everything in main()
 float readTemperature () {
-  // saves the temperature in a veriable
-  sensors_event_t temp_event;
-  float mesTemperature = temp_event.temperature;
 
-  // prints the temperature to the screen
+  // reads temperature in celcius and stores in variable 
+  float temperature = bmp.readTemperature();
+  
+  // prints temperature for debugging purposes
   Serial.print(F("Temperature = "));
-  Serial.print(temp_event.temperature);
+  Serial.print(temperature);
   Serial.println(" *C");
 
   // sets the value of the readTemperature function to the current temperature reading
-  return mesTemperature;
+  return temperature;
 } 

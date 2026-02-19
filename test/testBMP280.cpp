@@ -8,5 +8,6 @@ void setup() {
 }
 
 void loop() {
-  readTemperature(); // Saves variable and displays temperature
+  readTemperature(); // Function stores temperature variable to be used as needed and internally prints temperature value
+  delay(1000);
 }
