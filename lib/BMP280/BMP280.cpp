@@ -29,9 +29,8 @@ void measureTemperatureSetup () {
     Serial.print("   ID of 0x56-0x58 represents a BMP 280,\n");
     Serial.print("        ID of 0x60 represents a BME 280.\n");
     Serial.print("        ID of 0x61 represents a BME 680.\n");
-    while (1) delay(10);  // In the future, probably change this so that it doesn't stop 
-                          // the code entirely and instead provides a warning that the 
-                          // individual sensor isn't working
+    return; // If I2C doesn't connect, then it just won't finish the initializaiton.
+            // Doesn't stop other programs or operations from working
   }
 
   // Default settings from datasheet. 
