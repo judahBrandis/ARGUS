@@ -1,13 +1,14 @@
-#include <Arduino.h>
-#include <ZMPT101Bj.h>
+#include <arduino.h>
+#include <voltageSensor.h>
+
+#define voltageTune (5)
+#define volt        (A0)
 
 void setup() {
   Serial.begin(9600);
-
-  measureVoltageSetup(); // sets up the temperature measuring function
+  measureVoltageSetup(volt);
 }
 
-void loop() {
-  measureVoltage(); // Function stores temperature variable to be used as needed and internally prints temperature value
-  delay(1000); // Pauses for 1 second before printing temperature again
+void loop () {
+  measureVoltage(volt, voltageTune);
 }
