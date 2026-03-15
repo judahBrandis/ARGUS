@@ -1,3 +1,5 @@
+Status: Early development (v0.1.4)
+
 The goal of ARGUS is to create a PCB that is able to measure and log equipment voltage, 
 current, and its own enclosure temperature. Another device then pulls that data using modbus 
 and SCADA and displays real time information while providing important information and 
@@ -23,10 +25,14 @@ Current Features:
 Planned Features:
 - Voltage data acquisition
 - Current data acquisition
-- Power measurment
-- Resistance measurment
+- Power measurement
+- Resistance measurement
 - Data logging
 - Data communication via modbus
 - Smart dashboard via control station
 
-Satus: Early development (v0.1.4)
+Getting Started:
+1. Install PlatformIO in VS Code
+2. Create a new project and select nucleo_f446re as the board
+3. Upload code from Github to project
+4. Wire according to the provided wiring diagrams
