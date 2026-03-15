@@ -16,7 +16,7 @@ Hardware:
 - STM32F446 NUCLEO
 - BMP280 pressure sensor
 - INA219 current sensor
-
+  
 Current Features:
 - Temperature data acquisition
 
@@ -29,5 +29,4 @@ Planned Features:
 - Data communication via modbus
 - Smart dashboard via control station
 
-Satus:
-Early development (v0.1.4)
+Satus: Early development (v0.1.4)
