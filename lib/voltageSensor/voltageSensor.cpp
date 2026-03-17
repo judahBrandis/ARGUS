@@ -10,7 +10,6 @@ float measureVoltage (uint8_t voltagePin, float voltageTune) {
     float measuredVolt = voltageTune*analogRead(voltagePin);
 
     // Prints and then sets function equal to the voltage
-    Serial.print(measuredVolt);
-    Serial.println(" V");
+    Serial.print(measuredVolt); Serial.println(" V");
     return measuredVolt;
 }
