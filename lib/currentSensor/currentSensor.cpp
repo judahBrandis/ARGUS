@@ -7,9 +7,21 @@ int in;
 Adafruit_INA219 ina219;
 
 void measureCurrentSetup () {
-    Serial.begin(115200);
-    for (in = 0; in++; Serial) delay(1);
+    // for (in = 0; in++; Serial) delay(1);
     // will pause Zero, Leonardo, etc until serial console opens
+
+    /* 
+    I've found that the STM32 never thinks this part of the code is satified,
+    leading to an infinite loop of it not thinking it's connected for some reason.
+
+    if (! ina219.begin()) {
+        Serial.println("Failed to find INA219 chip");
+        while (1) 
+        {
+            delay(10);
+        }
+    }
+    */
 }
 
 float measureCurrent () {
