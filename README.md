@@ -1,4 +1,4 @@
-Status: Early development (v0.1.5)
+Status: Early development (v0.2)
 
 The goal of ARGUS is to create a PCB that is able to measure and log equipment voltage, 
 current, and its own enclosure temperature. Another device then pulls that data using modbus 
@@ -21,13 +21,12 @@ Hardware:
   
 Current Features:
 - Temperature data acquisition
-
-Planned Features:
 - Voltage data acquisition
 - Current data acquisition
 - Power measurement
-- Resistance measurement
-- Data logging
+
+Planned Features:
+- SD Card Data logging
 - Data communication via modbus
 - Smart dashboard via control station
 
