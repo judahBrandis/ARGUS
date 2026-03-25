@@ -51,4 +51,4 @@ Getting Started:
 <img src="Assets/BMP280%20Wiring%20Diagram.png" width="60%">
 
 ### INA219 Sensor:
-<img src="Assets/INA219%20Wiring%20Diagram.png" width="60%">
+<img src="Assets/INA219-Wiring-Diagram.png" width="60%">
