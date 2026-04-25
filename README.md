@@ -1,13 +1,12 @@
 # Automated Remote Grid Utility System (ARGUS)
 An STM32 based project that takes power related measurments, stores them, and sends the data
-to a control station via Modbus.
+to a control station via Modbus and SCADA.
 ## Project Overview
 Status: Early development (v0.2)
 
 The goal of ARGUS is to create a PCB that is able to measure and log equipment voltage, 
-current, and its own enclosure temperature. Another device then pulls that data using modbus 
-and SCADA and displays real time information while providing important information and 
-data logging.
+current, and  temperature. Another device then pulls that data using modbus andd SCADA 
+and displays real time information while providing important information and data logging.
 
 This is very similar to existing equipment in applications like substations, transmission lines, and 
 simple equipment power meters. For example, in a substation a device might be installed on a 
@@ -20,27 +19,27 @@ simpler, but it’s also used in real applications all the time for those exact 
 
 ## Technical Details
 
-Hardware:
+### Hardware
 - [Breakout Board: STM32F446 NUCLEO](https://www.digikey.com/en/products/detail/stmicroelectronics/NUCLEO-F446RE/5347712?utm_source=chatgpt.com)
 - [Temperature Sensor: BMP280](https://www.amazon.com/dp/B07VNDZ6N4?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
 - [Current & Voltage Sensor: INA219](https://www.adafruit.com/product/904#tutorials)
 - [Micro SD Card Module](https://www.amazon.com/dp/B08C4WY2WR?ref=ppx_yo2ov_dt_b_fed_asin_title)
 - [Modbus Tranceiver: MAX485CPA+](https://www.digikey.com/en/products/detail/analog-devices-inc-maxim-integrated/MAX485CPA/948026?gclid=8f93f0dd57ea13ac1df099f881cb0a2e&gclsrc=3p.ds&msclkid=8f93f0dd57ea13ac1df099f881cb0a2e)
   
-Current Features:
+### Current Features
 - Temperature data acquisition
 - Voltage data acquisition
 - Current data acquisition
 - Power measurement
 
-Planned Features:
+### Planned Features
 - SD Card Data logging
 - Data communication via modbus
 - Smart dashboard via control station
 
 ## Setting Up
 
-Getting Started:
+### Getting Started:
 1. Install and run VS Code
 2. Install PlatformIO IDE extension in VS Code
 3. Upload code from Github to project
