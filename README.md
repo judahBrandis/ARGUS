@@ -51,7 +51,7 @@ Getting Started:
 <img src="Images/BMP280%20Wiring%20Diagram.png" width="60%">
 
 ### INA219 Sensor:
-<img src="Images/INA219-Wiring-Diagram.png" width="60%">
+<img src="Images/INA219 Wiring Diagram.png" width="60%">
 
 ### SD Card Reader:
-<img src="Images/sdCard-Wiring-Diagram.png" width="60%">
+<img src="Images/sdCard Wiring Diagram.png" width="60%">
