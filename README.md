@@ -2,7 +2,7 @@
 An STM32 based project that takes power related measurments, stores them, and sends the data
 to a control station via Modbus.
 ## Project Overview
-Status: Early development (v0.2)
+Status: Early development (v0.4)
 
 The goal of ARGUS is to create a PCB that is able to measure and log equipment voltage, 
 current, and its own enclosure temperature. Another device then pulls that data using modbus 
@@ -32,9 +32,9 @@ Current Features:
 - Voltage data acquisition
 - Current data acquisition
 - Power measurement
+- SD Card Data logging
 
 Planned Features:
-- SD Card Data logging
 - Data communication via modbus
 - Smart dashboard via control station
 
