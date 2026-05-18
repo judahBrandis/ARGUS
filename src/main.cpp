@@ -3,8 +3,6 @@
 #include <INA219j.h>
 #include <BMP280.h>
 
-#define measureTime (1) // until I can measure time accurately
-
 const int DELAY_TIME = 1000; // delay (in miliseconds) between measurements are taken
 
 void setup () {
@@ -17,6 +15,6 @@ void setup () {
 
 void loop () {
     // read and log timestamp, current, voltage, and temperature
-    storeSD(measureTime, measureVoltage(), measureCurrent(), readTemperature()); 
+    storeSD(measureTime(), measureVoltage(), measureCurrent(), readTemperature()); 
     delay(DELAY_TIME);
 }
