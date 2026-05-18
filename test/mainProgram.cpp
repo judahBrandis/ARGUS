@@ -5,8 +5,6 @@
 
 #define measureTime (1) // until I can measure time accurately
 
-const int DELAY_TIME = 1000; // delay (in miliseconds) between measurements are taken
-
 void setup () {
     Serial.begin(9600);
 
@@ -18,5 +16,5 @@ void setup () {
 void loop () {
     // read and log timestamp, current, voltage, and temperature
     storeSD(measureTime, measureVoltage(), measureCurrent(), readTemperature()); 
-    delay(DELAY_TIME);
+    delay(1000);
 }
