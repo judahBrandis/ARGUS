@@ -55,3 +55,6 @@ Getting Started:
 
 ### SD Card Reader:
 <img src="Images/sdCard Wiring Diagram.png" width="60%">
+
+### MAX485CPA+ (Modbus Tranceiver):
+<img src="Images/MAX485CPA+ Wiring Diagram.png" width="60%">
