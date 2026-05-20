@@ -42,11 +42,10 @@ Planned Features:
 ## Setting Up
 
 Getting Started:
-1. Install PlatformIO in VS Code
-2. Create a new project and select nucleo_f446re as the board
-3. Upload code from Github to project
-4. Wire according to the provided wiring diagrams
-5. Run test code in src main file to test/run components individually 
+1. Download VS Code
+2. Upload code from Github to VS Code
+3. Wire according to the provided wiring diagrams
+4. Run test code in src main file to test/run components individually 
 
 ### BMP280 Sensor:
 <img src="Images/BMP280%20Wiring%20Diagram.png" width="60%">
