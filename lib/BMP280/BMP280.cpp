@@ -13,7 +13,7 @@ Adafruit_BMP280 bmp; // BMP280 I2C driver instance
 //Adafruit_BMP280 bmp(BMP_CS, BMP_MOSI, BMP_MISO,  BMP_SCK);
 
 // Sets up the tempeature reading function in setup() 
-void measureTemperatureSetup () {
+void setupBMP280 () {
   while ( !Serial ) delay(100);   // wait for USB serial monitor to connect before continuing
 
   // Locates and connects to BMP280 board through I2C
@@ -44,7 +44,7 @@ void measureTemperatureSetup () {
 } 
 
 // Displays the temperature in Celcius and serves as a variable 
-float readTemperature () {
+float measureTemperature () {
 
   // reads temperature in celcius and stores in variable 
   float temperature = bmp.readTemperature();

@@ -46,3 +46,8 @@ void storeSD (uint32_t time, float volt, float current, float temp) {
 uint32_t measureTime () {
     return millis() / 1000; 
 }
+
+// Makes file available in main file where it can be used in other libraries
+File getFile() {
+    return sd.open(FILE_NAME, O_READ);
+}

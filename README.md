@@ -2,7 +2,7 @@
 An STM32 based project that takes power related measurments, stores them, and sends the data
 to a control station via Modbus.
 ## Project Overview
-Status: Early development (v0.4)
+Status: Early development (v0.2)
 
 The goal of ARGUS is to create a PCB that is able to measure and log equipment voltage, 
 current, and its own enclosure temperature. Another device then pulls that data using modbus 
@@ -32,9 +32,9 @@ Current Features:
 - Voltage data acquisition
 - Current data acquisition
 - Power measurement
-- SD Card Data logging
 
 Planned Features:
+- SD Card Data logging
 - Data communication via modbus
 - Smart dashboard via control station
 
@@ -47,14 +47,11 @@ Getting Started:
 4. Wire according to the provided wiring diagrams
 5. Run test code in src main file to test/run components individually 
 
-### BMP280 (Temperautre Sensor):
+### BMP280 Sensor:
 <img src="Images/BMP280%20Wiring%20Diagram.png" width="60%">
 
-### INA219 (DC Voltage & Current Sensor):
+### INA219 Sensor:
 <img src="Images/INA219 Wiring Diagram.png" width="60%">
 
-### SPI SD Card Reader:
+### SD Card Reader:
 <img src="Images/sdCard Wiring Diagram.png" width="60%">
-
-### MAX485CPA+ (Modbus Tranceiver):
-<img src="Images/MAX485CPA+ Wiring Diagram.png" width="60%">
