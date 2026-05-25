@@ -26,7 +26,7 @@ void setupSD () {
 }
 
 // Log data in sd card
-void storeSD (uint32_t time, float volt, float current, float temp) {
+void storeSD (float time, float volt, float current, float temp) {
     myFile.open(FILE_NAME, O_WRITE | O_CREAT | O_APPEND); // Reopens the sd card to be used before closing again
 
     // Store voltage, current, and temperature into 3 seperate columns 
@@ -43,8 +43,8 @@ void storeSD (uint32_t time, float volt, float current, float temp) {
 }
 
 // Measure total elapsed time that ARGUS has been running in seconds
-uint32_t measureTime () {
-    return millis() / 1000; 
+float measureTime () {
+    return millis() / 1000.0; 
 }
 
 // Makes file available in main file where it can be used in other libraries

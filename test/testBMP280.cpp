@@ -4,10 +4,10 @@
 void setup() {
   Serial.begin(9600);
 
-  measureTemperatureSetup(); // sets up the temperature measuring function
+  setupBMP280(); // sets up the temperature measuring function
 }
 
 void loop() {
-  readTemperature(); // Function stores temperature variable to be used as needed and internally prints temperature value
+  measureTemperature(); // Function stores temperature variable to be used as needed and internally prints temperature value
   delay(1000); // Pauses for 1 second before printing temperature again
 }

@@ -47,11 +47,14 @@ Getting Started:
 3. Wire according to the provided wiring diagrams
 4. Run test code in src main file to test/run components individually 
 
-### BMP280 Sensor:
+### BMP280 (Temperature Sensor):
 <img src="Images/BMP280%20Wiring%20Diagram.png" width="60%">
 
-### INA219 Sensor:
+### INA219 (Current & Voltage Sensor):
 <img src="Images/INA219 Wiring Diagram.png" width="60%">
 
-### SD Card Reader:
+### SD Card Reader (SPI):
 <img src="Images/sdCard Wiring Diagram.png" width="60%">
+
+### MAX485CPA+ (RS485 Tranceiver):
+<img src="Images/MAX485CPA+ Wiring Diagram.png" width="60%">

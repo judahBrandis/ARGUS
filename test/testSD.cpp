@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float measureTime = 0; // until I can measure time accurately
 int upperBound = 100; // Upper bound of random values for data
 
 void setup () {
@@ -19,9 +18,6 @@ void loop () {
     int temperature = rand() % (upperBound + 1);
 
     // read and log timestamp, current, voltage, and temperature
-    storeSD(measureTime, voltage, current, temperature); 
+    storeSD(measureTime(), voltage, current, temperature); 
     delay(10);
-
-    // Increase time by 1
-    measureTime++;
 }
