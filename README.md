@@ -20,32 +20,34 @@ simpler, but it’s also used in real applications all the time for those exact 
 
 ## Technical Details
 
-Hardware:
+### Hardware:
 - [Breakout Board: STM32F446 NUCLEO](https://www.digikey.com/en/products/detail/stmicroelectronics/NUCLEO-F446RE/5347712?utm_source=chatgpt.com)
 - [Temperature Sensor: BMP280](https://www.amazon.com/dp/B07VNDZ6N4?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
 - [Current & Voltage Sensor: INA219](https://www.adafruit.com/product/904#tutorials)
 - [Micro SD Card Module](https://www.amazon.com/dp/B08C4WY2WR?ref=ppx_yo2ov_dt_b_fed_asin_title)
-- [Modbus Tranceiver: MAX485CPA+](https://www.digikey.com/en/products/detail/analog-devices-inc-maxim-integrated/MAX485CPA/948026?gclid=8f93f0dd57ea13ac1df099f881cb0a2e&gclsrc=3p.ds&msclkid=8f93f0dd57ea13ac1df099f881cb0a2e)
+- [RS485 Tranceiver: MAX485CPA+](https://www.digikey.com/en/products/detail/analog-devices-inc-maxim-integrated/MAX485CPA/948026?gclid=8f93f0dd57ea13ac1df099f881cb0a2e&gclsrc=3p.ds&msclkid=8f93f0dd57ea13ac1df099f881cb0a2e)
+- [RS485 to USB Adapter](https://www.amazon.com/dp/B081MB6PN2?ref=clp_hp_h_pc)
   
-Current Features:
+### Current Features:
 - Temperature data acquisition
 - Voltage data acquisition
 - Current data acquisition
 - Power measurement
 - SD Card Data logging
 
-Planned Features:
+### Planned Features:
 - Data communication via RS485
 - Modbus protocal with control station
 - Smart dashboard via control station
 
 ## Setting Up
 
-Getting Started:
-1. Download VS Code
-2. Upload code from Github to VS Code
-3. Wire according to the provided wiring diagrams
-4. Run test code in src main file to test/run components individually 
+### Getting Started:
+1. Obtain hardware listed in hardware section
+2. Download VS Code Appliation
+3. Upload code from Github to VS Code
+4. Wire according to the provided wiring diagrams
+5. Run test code in src main file to test/run components individually 
 
 ### BMP280 (Temperature Sensor):
 <img src="Images/BMP280%20Wiring%20Diagram.png" width="60%">
