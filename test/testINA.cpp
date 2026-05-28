@@ -1,3 +1,5 @@
+// Requires only INA219 module wired
+
 #include <Arduino.h>
 #include <INA219j.h>
 

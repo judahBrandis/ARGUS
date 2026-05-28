@@ -19,7 +19,7 @@ void transmitData (File &csvFile) {
 
         // Send line from csv file
         RS485.beginTransmission();
-        RS485.print(line);
+        RS485.println(line);                    // Uses println instead of print so that when sending data it sends in neat rows
         RS485.endTransmission();
     }
 }

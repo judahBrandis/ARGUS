@@ -1,3 +1,5 @@
+// Requires only sd card module
+
 #include <Arduino.h>
 #include <sdCard.h>
 #include <stdio.h>

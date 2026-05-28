@@ -1,3 +1,5 @@
+// Requires BMP280, INA219, SD Card Module, and MAX485CPA+ to be wired
+
 #include <Arduino.h>
 #include <sdCard.h>
 #include <INA219j.h>

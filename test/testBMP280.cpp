@@ -1,3 +1,5 @@
+// Requires only BMP280 module wired
+
 #include <Arduino.h>
 #include <BMP280.h>
 

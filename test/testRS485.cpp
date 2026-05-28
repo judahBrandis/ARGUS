@@ -1,3 +1,5 @@
+// Requires sd card module as well as MAX485CPA+ wired 
+
 #include <Arduino.h>
 #include <sdCard.h>
 #include <stdio.h>
