@@ -2,10 +2,14 @@
 #include <ArduinoRS485.h>
 #include <sdFat.h>
 
-const int BAUD_RATE = 9600; // Change to board baud rate
+const int txPin = D1;
+const int dePin = A0;
+const int rePin = -1;       // Tells code that rePin and dePin are tied together
 
-void setupRS485 () {
+void setupRS485 (int BAUD_RATE) {
     RS485.begin(BAUD_RATE);
+
+    RS485.setPins(txPin, dePin, rePin);
 }
 
 // Send one line from the CSV file via RS485

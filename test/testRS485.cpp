@@ -5,9 +5,9 @@
 #include <ArduinoRS485.h>
 
 void setup () {
-    Serial.begin(9600);
+  Serial.begin(9600);
 
-    setupRS485(); // sets up RS485
+  setupRS485(); // sets up RS485
 }
 
 void loop () {

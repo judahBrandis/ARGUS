@@ -4,10 +4,12 @@
 #include <MAX485CPA.h>
 #include <ArduinoRS485.h>
 
+const int BAUD = 9600;
+
 void setup () {
-  Serial.begin(9600); // baud rate
+  Serial.begin(BAUD); // baud rate
   
-    setupRS485(); // sets up RS485
+  setupRS485(BAUD); // sets up RS485
 }
 
 // Send "hello world" via RS485 every second
