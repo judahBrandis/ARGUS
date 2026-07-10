@@ -49,6 +49,22 @@ simpler, but it’s also used in real applications all the time for those exact 
 4. Wire according to the provided wiring diagrams
 5. Run test code in src main file to test/run components individually 
 
+### Helpful Debugging
+- BMP280: Soldering the pins to the sensor helps with connectivity
+- INA219: 
+    - Soldering the pins to sensor helps with connectivity
+    - There are two sets of Vin, only use one
+- SD Card Reader: 
+    - Should hear click from sd card when inserted into reader
+    - sd card can be pushed in to release from lock mechanism in reader
+    - Must manually clear data when you want to refresh data
+- MAX485CPA+: The RS485 to USB adapter has three indicator lights 
+    - Power should be on anytime nucleo board has power 
+    - RXD should be on whenever information is being sent from nucleo to computer
+    - TXD should be on whenever information is being sent from computer to nucleo
+
+## Wiring Diagrams
+
 ### BMP280 (Temperature Sensor):
 <img src="Images/BMP280%20Wiring%20Diagram.png" width="60%">
 
