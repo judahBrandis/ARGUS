@@ -30,15 +30,18 @@ simpler, but it’s also used in real applications all the time for those exact 
   
 ### Current Features:
 - Temperature data acquisition
-- Voltage data acquisition
-- Current data acquisition
-- Power measurement
+- DC voltage data acquisition
+- DC current data acquisition
+- DC power measurement
 - SD Card Data logging
 
 ### Planned Features:
-- Data communication via RS485
-- Modbus protocal with control station
-- Smart dashboard via control station
+1. Data communication via RS485
+2. Modbus protocal with control station
+3. Smart dashboard via control station
+4. AC voltage data acquisition
+5. AC current data acquisition
+6. AC power measurement
 
 ## Setting Up
 
