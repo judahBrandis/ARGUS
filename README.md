@@ -79,3 +79,54 @@ simpler, but it’s also used in real applications all the time for those exact 
 
 ### MAX485CPA+ (RS485 Tranceiver):
 <img src="Images/MAX485CPA+ Wiring Diagram.png" width="60%">
+
+## Methods
+
+> -------------------------------------------------------------------------------------------------
+> setupBMP280()
+
+<details><summary id="modbusrtuslave-1"><strong>setupBMP280()</strong></summary>
+  <blockquote>
+
+### Description
+Automatically connects to the BMP280 sensor and uploads the standard settings to the sensor. 
+This function is only meant to be run once, and should be ran before the BMP280 sensor is used.
+
+### Syntax
+- `setupBMP280()`
+
+### Parameters
+- None
+
+### Example
+``` C++
+# include <BMP280.h>
+
+void setup () {
+    setupBMP280();
+}
+```
+
+  </blockquote>
+</details>
+
+> -------------------------------------------------------------------------------------------------
+> setupINA()
+
+> -------------------------------------------------------------------------------------------------
+> setupSD()
+
+> -------------------------------------------------------------------------------------------------
+> measureTime()
+
+> -------------------------------------------------------------------------------------------------
+> measureVoltage()
+
+> -------------------------------------------------------------------------------------------------
+> measureCurrent()
+
+> -------------------------------------------------------------------------------------------------
+> measureTemperature()
+
+> -------------------------------------------------------------------------------------------------
+> storeSD()
