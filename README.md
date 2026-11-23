@@ -1,10 +1,10 @@
-# Automated Remote Grid Utility System (ARGUS)
+# Node485
 An STM32 based project that takes power related measurments, stores them, and sends the data
 to a control station via Modbus.
 ## Project Overview
 Status: Early development (v0.4)
 
-The goal of ARGUS is to create a PCB that is able to measure and log equipment voltage, 
+The goal of Node485 is to create a PCB that is able to measure and log equipment voltage, 
 current, and its own enclosure temperature. Another device then pulls that data using modbus 
 and SCADA and displays real time information while providing important information and 
 data logging.
