@@ -82,11 +82,13 @@ simpler, but it’s also used in real applications all the time for those exact 
 
 ## Methods
 
-> -------------------------------------------------------------------------------------------------
-> setupBMP280()
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- setupBMP280() -->
 
-<details><summary id="modbusrtuslave-1"><strong>setupBMP280()</strong></summary>
-  <blockquote>
+<details>
+<summary id="Node485-1"><strong>setupBMP280()</strong></summary>
+
+<blockquote>
 
 ### Description
 Automatically connects to the BMP280 sensor and uploads the standard settings to the sensor. 
@@ -99,34 +101,128 @@ This function is only meant to be run once, and should be ran before the BMP280 
 - None
 
 ### Example
-``` C++
-# include <BMP280.h>
+```cpp
+#include <BMP280.h>
 
 void setup () {
     setupBMP280();
 }
 ```
 
-  </blockquote>
+</blockquote>
+    
 </details>
 
-> -------------------------------------------------------------------------------------------------
-> setupINA()
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- setupINA() -->
 
-> -------------------------------------------------------------------------------------------------
-> setupSD()
+<details>
+<summary id="Node485-2"><strong>setupINA()</strong></summary>
 
-> -------------------------------------------------------------------------------------------------
-> measureTime()
+<blockquote>
 
-> -------------------------------------------------------------------------------------------------
-> measureVoltage()
+### Description
+Automatically connects to the INA219 sensor. 
+This function is only meant to be run once, and should be ran before the INA219 sensor is used.
 
-> -------------------------------------------------------------------------------------------------
-> measureCurrent()
+### Syntax
+- `setupINA()`
 
-> -------------------------------------------------------------------------------------------------
-> measureTemperature()
+### Parameters
+- None
 
-> -------------------------------------------------------------------------------------------------
-> storeSD()
+### Example
+```cpp
+#include <INA219j.h>
+
+void setup () {
+    setupINA();
+}
+```
+
+</blockquote>
+    
+</details>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- setupSD() -->
+
+<details>
+<summary id="Node485-3"><strong>setupSD()</strong></summary>
+
+<blockquote>
+
+### Description
+Automatically connects to the micro sd card module and uploads the standard settings to the sensor. 
+If a CSV file with the given file name doesn't exist, then a new file with that name will be created and given column titles in the first row of the CSV file.
+This function is only meant to be run once, and should be ran before the sd card is used.
+
+### Syntax
+- `setupSD(file_name)`
+
+### Parameters
+- 'file_name': a pointer to an array of characters, or essentially a string, which is the name of the file that data will be stored in. If a file with the given name doesn't exist, then one will be created.
+
+### Example
+```cpp
+#include <sdCard.h>
+
+char *file_name = "Net485.CSV";
+
+void setup () {
+    setupSD(file_name);
+}
+```
+
+</blockquote>
+    
+</details>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- setupModBus() -->
+
+<details>
+<summary id="Node485-4"><strong>setupModBus()</strong></summary>
+
+<blockquote>
+
+### Description
+Automatically connects to the master computer and will likely send and receive a test message.
+This function is only meant to be run once, and should be ran before any ModBus commands are used.
+
+### Syntax
+- `setupModBus()`
+
+### Parameters
+- None
+
+### Example
+```cpp
+#include <ModBusj.h>
+
+void setup () {
+    setupModBus();
+}
+```
+
+</blockquote>
+    
+</details>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- measureTime() -->
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- measureVoltage() -->
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- measureCurrent() -->
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- measureTemperature() -->
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- receivingMessage() -->
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- sendData() -->
