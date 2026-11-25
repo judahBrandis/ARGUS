@@ -78,7 +78,7 @@ simpler, but it’s also used in real applications all the time for those exact 
 <img src="Images/sdCard Wiring Diagram.png" width="60%">
 
 ### MAX485CPA+ (RS485 Tranceiver):
-<img src="Images/MAX485CPA+ Wiring Diagram.png?v=2" width="60%">
+<img src="Images/MAX485CPA Wiring Diagram.png" width="60%">
 
 ## Methods
 
