@@ -187,11 +187,221 @@ void setup () {
 <blockquote>
 
 ### Description
-Automatically connects to the master computer and will likely send and receive a test message.
+Configures ModBus by defining communication pins, baud rate, and registers. 
 This function is only meant to be run once, and should be ran before any ModBus commands are used.
 
 ### Syntax
-- `setupModBus()`
+- `setupModBus(ModBusID, baud_rate, inputRegisters, numInputRegisters)`
+
+### Parameters
+- 'ModBusID': 'int' data type representing the id of the Node485 module. Each module must have a unique id so that
+the master computer can differentiate data from different modules and request data individually. 
+- 'baud_rate': 'int' data type re baud rate of the Node485 module. By defualt, the baud rate is 9600
+- 'inputRegisters': An array of 'float' values. Each index holds a different data measurement. For example, index 0 holds
+the time that a measurement was taken, index 1 the temperature, etc. There are 6 indexes, and when the master computer desires data,
+the registers are automatically sent.
+- 'NumInputRegisters': 'int' data type. How many data measurements are sent via ModBus. By defualt this is 6 as there are 6 data points
+measured by a Node485 module, but by changing this you could send only the first 5 or such while still saving all 6 data points to the CSV file.
+
+### Example
+```cpp
+#include <ModBusj.h>
+
+numInputRegisters = 6;
+float inputRegisters[numInputRegisters] = {0};
+
+void setup () {
+    int baud_rate = 9600;
+    int ModBusID = 1;
+
+    setupModBus(ModBusID, baud_rate, inputRegisters, numInputRegisters);
+}
+```
+
+</blockquote>
+    
+</details>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- measureTime() -->
+
+<details>
+<summary id="Node485-5"><strong>measureTime()</strong></summary>
+
+<blockquote>
+
+### Description
+Meausres how much time has passed since the microcontroller turned on and began operating. The 
+return type is a float, and measures in seconds and is accurate to a milisecond. 
+
+### Syntax
+- `measureTime()`
+
+### Parameters
+- None
+
+### Example
+```cpp
+#include <sdCard.h>
+
+float time = measureTime();
+```
+
+</blockquote>
+    
+</details>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- measureVoltage() -->
+
+<details>
+<summary id="Node485-6"><strong>measureVoltage()</strong></summary>
+
+<blockquote>
+
+### Description
+Meausres DC voltage across two points using the INA219 sensor. Make sure to run 'setupINA()' before using this command as the 
+sensor must be connected to before being used. 
+
+### Syntax
+- `measureVoltage()`
+
+### Parameters
+- None
+
+### Example
+```cpp
+#include <INA219j.h>
+
+setupINA();
+float voltMeasured = measureVoltage();
+```
+
+</blockquote>
+    
+</details>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- measureCurrent() -->
+
+<details>
+<summary id="Node485-7"><strong>measureCurrent()</strong></summary>
+
+<blockquote>
+
+### Description
+Meausres DC current between two points using the INA219 sensor. Make sure to run 'setupINA()' before using this command as the 
+sensor must be connected to before being used. 
+
+### Syntax
+- `measureCurrent()`
+
+### Parameters
+- None
+
+### Example
+```cpp
+#include <INA219j.h>
+
+setupINA();
+float currentMeasured = measureCurrent();
+```
+
+</blockquote>
+    
+</details>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- measureTemperature() -->
+
+<details>
+<summary id="Node485-8"><strong>measureTemperature()</strong></summary>
+
+<blockquote>
+
+### Description
+Meausres temperature in Celcius using the BMP280 sensor. Make sure to run 'setupBMP280()' before using this command as the 
+sensor must be connected to before being used. 
+
+### Syntax
+- `measureTemperature()`
+
+### Parameters
+- None
+
+### Example
+```cpp
+#include <BMP280.h>
+
+setupBMP280();
+float temperatureMeasured = measureTemperature();
+```
+
+</blockquote>
+    
+</details>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- updateRegisters() -->
+
+<details>
+<summary id="Node485-8"><strong>updateRegisters()</strong></summary>
+
+<blockquote>
+
+### Description
+Updates the ModBus registers with new data from sensors. 
+'setupModBus()' does not need to be used before using this command as the ModBus communication isn't required to update or define registers. 
+### Syntax
+- `updateRegisters(modRegister[], time, temp, DCvolt, DCcurrent, ACvolt, ACcurrent)`
+
+### Parameters
+- 'modRegister': An array of 'float' values. Each index holds a different data measurement. For example, index 0 holds
+the time that a measurement was taken, index 1 the temperature, etc. There are 6 indexes, and when the master computer desires data,
+the registers are automatically sent.
+- 'time': 'float' data type. How much time has passed since the microcontroller began operating
+- 'temp': 'float' data type. A temperature reading (C). 
+- 'DCvolt': 'float' data type. A DC voltage reading (V).
+- 'DCcurrent': 'float' data type. A DC current reading (A).
+- 'ACvolt': 'float' data type. An AC voltage reading (Vrms).
+- 'ACcurrent': 'float' data type. An AC current reading (Arms).
+
+### Example
+```cpp
+
+// take data measurements
+float timeMeasure = measureTime();
+float voltageMeasure = measureVoltage();
+float currentMeasure = measureCurrent();
+float tempMeasure = measureTemperature();
+
+// in this example it's a DC system, so no AC voltage or current, only DC
+float ACvoltage = 0.0;
+float ACcurrent = 0.0;
+
+// update the registers with newly acquired data
+updateRegisters(myRegisters, timeMeasure, tempMeasure, voltageMeasure, currentMeasure, ACvoltage, ACcurrent);
+```
+
+</blockquote>
+    
+</details>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- sendData() -->
+
+<details>
+<summary id="Node485-8"><strong>sendData()</strong></summary>
+
+<blockquote>
+
+### Description
+Check if the master computer has requested any data. If so, automatically send the data stored in the register and return 1.
+Otherwise, return 0 and do nothing. Make sure to run 'setupModBus()' before using this command as the 
+ModBus communication must be setup before being used. 
+
+### Syntax
+- `sendData()`
 
 ### Parameters
 - None
@@ -200,31 +410,24 @@ This function is only meant to be run once, and should be ran before any ModBus 
 ```cpp
 #include <ModBusj.h>
 
+// for setting up ModBus communication
+numInputRegisters = 6;
+float inputRegisters[numInputRegisters] = {0};
+
 void setup () {
-    setupModBus();
+    int baud_rate = 9600;
+    int ModBusID = 1;
+
+    setupModBus(ModBusID, baud_rate, inputRegisters, numInputRegisters);
+}
+
+// constantly check if data has been requested and if so, send the data stored in the registers
+// in this example, the registers aren't updated, so when data is requested, the registers will contain 0, not accurate data
+void loop () {
+    int dataSent = sendData();
 }
 ```
 
 </blockquote>
     
 </details>
-
-As this is still early development, more methods still need to be documented.
-
-<!-- ----------------------------------------------------------------------------------------------- -->
-<!-- measureTime() -->
-
-<!-- ----------------------------------------------------------------------------------------------- -->
-<!-- measureVoltage() -->
-
-<!-- ----------------------------------------------------------------------------------------------- -->
-<!-- measureCurrent() -->
-
-<!-- ----------------------------------------------------------------------------------------------- -->
-<!-- measureTemperature() -->
-
-<!-- ----------------------------------------------------------------------------------------------- -->
-<!-- receivingMessage() -->
-
-<!-- ----------------------------------------------------------------------------------------------- -->
-<!-- sendData() -->
