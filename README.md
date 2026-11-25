@@ -7,7 +7,7 @@ Status: Early development (v0.4)
 The goal of Node485 is to create a PCB that is able to measure and log equipment voltage, 
 current, and its own enclosure temperature. Another device then pulls that data using modbus 
 and SCADA and displays real time information while providing important information and 
-data logging. 
+data logging.
 
 This is very similar to existing equipment in applications like substations, transmission lines, and 
 simple equipment power meters. For example, in a substation a device might be installed on a 
@@ -78,7 +78,7 @@ simpler, but it’s also used in real applications all the time for those exact 
 <img src="Images/sdCard Wiring Diagram.png" width="60%">
 
 ### MAX485CPA+ (RS485 Tranceiver):
-<img src="Images/MAX485CPA+ Wiring Diagram.png" width="60%">
+<img src="Images/MAX485CPA+ Wiring Diagram.png?v=2" width="60%">
 
 ## Methods
 
@@ -208,6 +208,8 @@ void setup () {
 </blockquote>
     
 </details>
+
+As this is still early development, more methods still need to be documented.
 
 <!-- ----------------------------------------------------------------------------------------------- -->
 <!-- measureTime() -->
