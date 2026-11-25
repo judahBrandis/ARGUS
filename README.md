@@ -7,7 +7,7 @@ Status: Early development (v0.4)
 The goal of Node485 is to create a PCB that is able to measure and log equipment voltage, 
 current, and its own enclosure temperature. Another device then pulls that data using modbus 
 and SCADA and displays real time information while providing important information and 
-data logging.
+data logging. 
 
 This is very similar to existing equipment in applications like substations, transmission lines, and 
 simple equipment power meters. For example, in a substation a device might be installed on a 
