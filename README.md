@@ -353,7 +353,7 @@ float temperatureMeasured = measureTemperature();
 Updates the ModBus registers with new data from sensors. 
 `setupModBus()` does not need to be used before using this command as the ModBus communication isn't required to update or define registers. 
 ### Syntax
-- `updateRegisters(modRegister[], time, temp, DCvolt, DCcurrent, ACvolt, ACcurrent)`
+- `updateRegisters(modRegister, time, temp, DCvolt, DCcurrent, ACvolt, ACcurrent)`
 
 ### Parameters
 - `modRegister`: An array of `float` values. Each index holds a different data measurement. For example, index 0 holds
