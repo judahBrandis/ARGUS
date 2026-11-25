@@ -161,7 +161,7 @@ This function is only meant to be run once, and should be ran before the sd card
 - `setupSD(file_name)`
 
 ### Parameters
-- 'file_name': a pointer to an array of characters, or essentially a string, which is the name of the file that data will be stored in. If a file with the given name doesn't exist, then one will be created.
+- `file_name`: a pointer to an array of `char` data types, or essentially a string. It's the name of the file that data will be stored in. If a file with the given name doesn't exist, then one will be created.
 
 ### Example
 ```cpp
@@ -194,13 +194,13 @@ This function is only meant to be run once, and should be ran before any ModBus 
 - `setupModBus(ModBusID, baud_rate, inputRegisters, numInputRegisters)`
 
 ### Parameters
-- 'ModBusID': 'int' data type representing the id of the Node485 module. Each module must have a unique id so that
+- `ModBusID`: `int` data type representing the id of the Node485 module. Each module must have a unique id so that
 the master computer can differentiate data from different modules and request data individually. 
-- 'baud_rate': 'int' data type re baud rate of the Node485 module. By defualt, the baud rate is 9600
-- 'inputRegisters': An array of 'float' values. Each index holds a different data measurement. For example, index 0 holds
+- `baud_rate`: `int` data type re baud rate of the Node485 module. By defualt, the baud rate is 9600
+- `inputRegisters`: An array of `float` values. Each index holds a different data measurement. For example, index 0 holds
 the time that a measurement was taken, index 1 the temperature, etc. There are 6 indexes, and when the master computer desires data,
 the registers are automatically sent.
-- 'NumInputRegisters': 'int' data type. How many data measurements are sent via ModBus. By defualt this is 6 as there are 6 data points
+- `NumInputRegisters`: `int` data type. How many data measurements are sent via ModBus. By defualt this is 6 as there are 6 data points
 measured by a Node485 module, but by changing this you could send only the first 5 or such while still saving all 6 data points to the CSV file.
 
 ### Example
@@ -260,7 +260,7 @@ float time = measureTime();
 <blockquote>
 
 ### Description
-Meausres DC voltage across two points using the INA219 sensor. Make sure to run 'setupINA()' before using this command as the 
+Meausres DC voltage across two points using the INA219 sensor. Make sure to run `setupINA()` before using this command as the 
 sensor must be connected to before being used. 
 
 ### Syntax
@@ -290,7 +290,7 @@ float voltMeasured = measureVoltage();
 <blockquote>
 
 ### Description
-Meausres DC current between two points using the INA219 sensor. Make sure to run 'setupINA()' before using this command as the 
+Meausres DC current between two points using the INA219 sensor. Make sure to run `setupINA()` before using this command as the 
 sensor must be connected to before being used. 
 
 ### Syntax
@@ -320,7 +320,7 @@ float currentMeasured = measureCurrent();
 <blockquote>
 
 ### Description
-Meausres temperature in Celcius using the BMP280 sensor. Make sure to run 'setupBMP280()' before using this command as the 
+Meausres temperature in Celcius using the BMP280 sensor. Make sure to run `setupBMP280()` before using this command as the 
 sensor must be connected to before being used. 
 
 ### Syntax
@@ -351,20 +351,20 @@ float temperatureMeasured = measureTemperature();
 
 ### Description
 Updates the ModBus registers with new data from sensors. 
-'setupModBus()' does not need to be used before using this command as the ModBus communication isn't required to update or define registers. 
+`setupModBus()` does not need to be used before using this command as the ModBus communication isn't required to update or define registers. 
 ### Syntax
 - `updateRegisters(modRegister[], time, temp, DCvolt, DCcurrent, ACvolt, ACcurrent)`
 
 ### Parameters
-- 'modRegister': An array of 'float' values. Each index holds a different data measurement. For example, index 0 holds
+- `modRegister`: An array of `float` values. Each index holds a different data measurement. For example, index 0 holds
 the time that a measurement was taken, index 1 the temperature, etc. There are 6 indexes, and when the master computer desires data,
 the registers are automatically sent.
-- 'time': 'float' data type. How much time has passed since the microcontroller began operating
-- 'temp': 'float' data type. A temperature reading (C). 
-- 'DCvolt': 'float' data type. A DC voltage reading (V).
-- 'DCcurrent': 'float' data type. A DC current reading (A).
-- 'ACvolt': 'float' data type. An AC voltage reading (Vrms).
-- 'ACcurrent': 'float' data type. An AC current reading (Arms).
+- `time`: `float` data type. How much time has passed since the microcontroller began operating
+- `temp`: `float` data type. A temperature reading (C). 
+- `DCvolt`: `float` data type. A DC voltage reading (V).
+- `DCcurrent`: `float` data type. A DC current reading (A).
+- `ACvolt`: `float` data type. An AC voltage reading (Vrms).
+- `ACcurrent`: `float` data type. An AC current reading (Arms).
 
 ### Example
 ```cpp
@@ -397,7 +397,7 @@ updateRegisters(myRegisters, timeMeasure, tempMeasure, voltageMeasure, currentMe
 
 ### Description
 Check if the master computer has requested any data. If so, automatically send the data stored in the register and return 1.
-Otherwise, return 0 and do nothing. Make sure to run 'setupModBus()' before using this command as the 
+Otherwise, return 0 and do nothing. Make sure to run `setupModBus()` before using this command as the 
 ModBus communication must be setup before being used. 
 
 ### Syntax
