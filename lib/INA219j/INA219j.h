@@ -1,5 +1,4 @@
 #pragma once
-
 #include <arduino.h>
 
 // The three functions I created in my INA sensor library

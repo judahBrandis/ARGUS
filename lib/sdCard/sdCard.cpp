@@ -1,16 +1,14 @@
 #include <Arduino.h>
 #include <SdFat.h>
 
-#define FILE_NAME "ARGUS_Data.csv" // Change to whatever file name and type you want
-
 const int chipSelect = D10; // Change to whatever pin your chip select for SPI is 
 
 SdFat sd;
 SdFile myFile;
 
 // Setup sd card - should be run in setup in main file
-void setupSD () {
-    Serial.begin(9600);
+void setupSD (int baud_rate, char *FILE_NAME) {
+    Serial.begin(baud_rate);
     while (!Serial) {}  // wait for Leonardo
     
     // Initialize SdFat or print a detailed error message and halt
@@ -26,7 +24,7 @@ void setupSD () {
 }
 
 // Log data in sd card
-void storeSD (float time, float volt, float current, float temp) {
+void storeSD (char *FILE_NAME, float time, float volt, float current, float temp) {
     myFile.open(FILE_NAME, O_WRITE | O_CREAT | O_APPEND); // Reopens the sd card to be used before closing again
 
     // Store voltage, current, and temperature into 3 seperate columns 
@@ -48,6 +46,6 @@ float measureTime () {
 }
 
 // Makes file available in main file where it can be used in other libraries
-File getFile() {
+File getFile(char *FILE_NAME) {
     return sd.open(FILE_NAME, O_READ);
 }
